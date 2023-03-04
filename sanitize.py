@@ -1,17 +1,10 @@
-from pathlib import Path
-
-folder = r'D:\GoIT\New_F'
-path = Path(folder)
+import shutil
 
 
 def sanitize_folder(path):
-    for item in path.iterdir():
+    for item in path.iterdir():  # iteration on target path
         if item.is_dir():
-            if item.name in ['images', 'documents', 'audio', 'video', 'archives']:
+            if item.name not in ['images', 'documents', 'audio', 'video', 'archives', 'unknown_extension_files']:  # ignore folders
+                shutil.rmtree(item, ignore_errors=True)  # remove directory with all tree
                 continue
-            if not any(item.iterdir()):
-                item.rmdir()
-            sanitize_folder(item)
-
-
-print(sanitize_folder(path))
+        continue

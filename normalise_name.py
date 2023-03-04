@@ -7,8 +7,8 @@ def normalize(file_name):
 
     TRANS = {}
     for c, t in zip(CYRILLIC_SYMBOLS, TRANSLATION):
-        TRANS[ord(c)] = t
-        TRANS[ord(c.upper())] = t.upper()
-    name = file_name.translate(TRANS)
-    normalised_name = re.sub(r'\W', '_', name)
+        TRANS[ord(c)] = t  # transliteration small symbols
+        TRANS[ord(c.upper())] = t.upper()  # transliteration large symbols
+    name = file_name.translate(TRANS)  # file name translation by translate method
+    normalised_name = re.sub(r'\W', '_', name)  # replacing all extra characters in the file name with "_" (excluding letters, numbers and "_")
     return normalised_name
