@@ -1,5 +1,7 @@
 from normalise_name import normalize
 import shutil
+
+
 def file_manager(item, new_folder_path):
     normalised_file_name = f'{normalize(item.stem)}{item.suffix}'  # normalise file name string
     new_file_path = item.rename(item.parent / normalised_file_name)  # rename file
@@ -9,6 +11,7 @@ def file_manager(item, new_folder_path):
     except FileExistsError:
         new_file_target = new_file_path.replace(new_folder_path / new_file_path.name)  # replace file if target directory is exists
     return normalised_file_name
+
 
 def archive_manager(item, new_folder_path):
     normalised_archive_name = f'{normalize(item.stem)}{item.suffix}'  # normalize archive name

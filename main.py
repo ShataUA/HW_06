@@ -4,6 +4,7 @@ from manage_file import file_manager
 from manage_file import archive_manager
 from sanitize import sanitize_folder
 
+
 """
     To run the script open terminal and type command: py main.py 'target folder path' 
     Python interpreter needed
@@ -13,6 +14,7 @@ from sanitize import sanitize_folder
                         Slack: @Anton.Shamaida
 """
 
+
 images_list = []
 documents_list = []
 audio_list = []
@@ -21,6 +23,7 @@ archives_list = []
 unknown_extension_files_list = []
 known_extensions_list = []
 unknown_extensions_list = []
+
 
 extensions_dict = {
     'images': ['.jpeg', '.jpg', '.png', '.bmp', '.svg'],
@@ -90,7 +93,6 @@ def sort(folder):
             unknown_extension_files_list.append(item.name)  # update unknown extension files list
             global unknown_extensions_list
             unknown_extensions_list.append(item.suffix)  # update unknown extensions list
-
 
 
 if __name__ == '__main__':
