@@ -44,7 +44,7 @@ def sort(folder):
     path = Path(folder)
     for item in path.iterdir():
         if item.is_dir():
-            if item.name in ['images', 'documents', 'audio', 'video', 'archives', 'unknown_extension_files']: # ignore folders
+            if item.name in ['images', 'documents', 'audio', 'video', 'archives', 'unknown_extension_files']:  # ignore folders
                 continue
             sort(item)
         elif item.suffix in extensions_dict['images']:  # file extension checking
@@ -86,9 +86,9 @@ def sort(folder):
             new_folder_path = folder_path / 'unknown_extension_files'  # unknown extension files folder path
             try:
                 new_folder_path.mkdir(parents=True, exist_ok=False)  # create unknown extension files folder
-                new_file_target = item.replace(new_folder_path / item.name)  # replace unknown extension files
+                item.replace(new_folder_path / item.name)  # replace unknown extension files
             except FileExistsError:
-                new_file_target = item.replace(new_folder_path / item.name)  # replace unknown extension files
+                item.replace(new_folder_path / item.name)  # replace unknown extension files
             global unknown_extension_files_list
             unknown_extension_files_list.append(item.name)  # update unknown extension files list
             global unknown_extensions_list
