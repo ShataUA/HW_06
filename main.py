@@ -30,8 +30,12 @@ extensions_dict = {
     'documents': ['.doc', '.docx', '.txt', '.pdf', '.xlsx', '.xls', '.pptx'],
     'audio': ['.mp3', '.ogg', '.wav', '.amr'],
     'video': ['.mp4', '.avi', '.mov', '.mpg', '.mpeg', '.wmv', '.mkv'],
-    'archives': ['.zip', '.gz', '.tar']
+    'archives': ['.zip', '.gz', '.tar'],
+    'unknown_extension_files': []
 }
+
+
+ignore_folders_list = [i for i in extensions_dict.keys()]
 
 
 def extensions_append(extension):  # update known extensions list
@@ -44,7 +48,7 @@ def sort(folder):
     path = Path(folder)
     for item in path.iterdir():
         if item.is_dir():
-            if item.name in ['images', 'documents', 'audio', 'video', 'archives', 'unknown_extension_files']:  # ignore folders
+            if item.name in ignore_folders_list:  # ignore folders
                 continue
             sort(item)
         elif item.suffix in extensions_dict['images']:  # file extension checking
@@ -99,7 +103,7 @@ if __name__ == '__main__':
     folder = sys.argv[1]
     folder_path = Path(folder)
     sort(folder)
-    sanitize_folder(folder_path)
+    sanitize_folder(folder_path, ignore_folders_list)
     print(f'images:\n{images_list}\n')
     print(f'documents:\n{documents_list}\n')
     print(f'audio:\n{audio_list}\n')
