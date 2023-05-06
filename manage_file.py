@@ -29,3 +29,4 @@ def archive_manager(item, new_folder_path):
         new_archive_path.mkdir(parents=True, exist_ok=False)  # create directory to unpack archive
         shutil.unpack_archive(new_name_archive_path, new_archive_path)  # unpack archive
     return normalised_archive_name
+

@@ -10,8 +10,6 @@ from sanitize import sanitize_folder
     Python interpreter needed
     Check U have the following files in the project directory: main.py, manage_file.py, normalise_name.py, sanitize.py
     For more information: 
-                        antonshamaida@gmail.com
-                        Slack: @Anton.Shamaida
 """
 
 

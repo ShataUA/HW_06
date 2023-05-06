@@ -8,3 +8,4 @@ def sanitize_folder(path, ignore_folders_list):
                 shutil.rmtree(item, ignore_errors=True)  # remove directory with all tree
                 continue
         continue
+

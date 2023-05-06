@@ -15,3 +15,4 @@ def normalize(file_name):
 
     normalised_name = re.sub(r'\W', '_', file_name.translate(TRANS))  # file name translation and replacing all extra characters in the file name with "_" (excluding letters, numbers and "_")
     return normalised_name
+
